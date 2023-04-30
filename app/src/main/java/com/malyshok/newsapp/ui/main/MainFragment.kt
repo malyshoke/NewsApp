@@ -8,12 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.malyshok.newsapp.R
+
 import com.malyshok.newsapp.databinding.FragmentMainBinding
+import com.malyshok.newsapp.ui.adapters.NewsAdapter
 import com.malyshok.newsapp.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_main.*
-import ru.mvlikhachev.newsapp.ui.adapters.NewsAdapter
 
 
 @AndroidEntryPoint
@@ -36,7 +36,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
         viewModel.newsLiveData.observe(viewLifecycleOwner) { responce ->
-            when(responce) {
+            when (responce) {
                 is Resource.Success -> {
                     pag_progress_bar.visibility = View.INVISIBLE
                     responce.data?.let {

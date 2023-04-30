@@ -1,4 +1,4 @@
-package ru.mvlikhachev.newsapp.ui.adapters
+package com.malyshok.newsapp.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
