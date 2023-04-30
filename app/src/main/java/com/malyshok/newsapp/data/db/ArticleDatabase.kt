@@ -1,4 +1,4 @@
-package com.malyshok.newsapp.data.db
+package ru.mvlikhachev.newsapp.data.db
 
 import android.content.Context
 import androidx.room.Room
@@ -13,7 +13,7 @@ abstract class ArticleDatabase: RoomDatabase() {
         private var instance: ArticleDatabase? = null
         private val LOCK = Any()
 
-        operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
+        operator fun invoke(context: Context) = instance?: synchronized(LOCK) {
             instance ?: createDatabase(context).also { instance = it }
         }
 

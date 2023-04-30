@@ -40,7 +40,11 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
             Glide.with(this).load(article.urlToImage).into(article_image)
             article_image.clipToOutline = true
             article_title.text = article.title
-            article_date.text = article.publishedAt.substring(0,10)
+            article_date.text = article.publishedAt
+
+            setOnClickListener {
+                onItemClickListener?.let { it(article) }
+            }
         }
     }
 

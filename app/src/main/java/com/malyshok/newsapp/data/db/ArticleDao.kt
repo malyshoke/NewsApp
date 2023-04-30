@@ -1,4 +1,4 @@
-package com.malyshok.newsapp.data.db
+package ru.mvlikhachev.newsapp.data.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Delete

@@ -1,16 +1,20 @@
 package ru.mvlikhachev.newsapp.di
 
+import android.content.Context
+import androidx.room.Room
 import com.malyshok.newsapp.data.api.NewsService
 import com.malyshok.newsapp.utils.Constants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
+
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -27,7 +31,6 @@ object AppModule {
     fun okHttpClient() = OkHttpClient.Builder()
         .addInterceptor(logging())
         .build()
-
     @Provides
     @Singleton
     fun provideRetrofit(baseUrl: String): NewsService =
@@ -37,4 +40,5 @@ object AppModule {
             .client(okHttpClient())
             .build()
             .create(NewsService::class.java)
+
 }
