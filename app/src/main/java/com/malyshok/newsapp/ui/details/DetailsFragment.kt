@@ -11,12 +11,13 @@ import android.webkit.URLUtil
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.malyshok.newsapp.R
 import com.malyshok.newsapp.databinding.FragmentDetailsBinding
 import dagger.hilt.android.AndroidEntryPoint
-
+import kotlinx.android.synthetic.main.fragment_details.*
 
 
 class DetailsFragment : Fragment() {
@@ -36,6 +37,12 @@ class DetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val articleArg = bundleArgs.article
+
+        icon_back.setOnClickListener {
+            view.findNavController().navigate(
+                R.id.action_detailsFragment_to_mainFragment
+            )
+        }
 
         articleArg.let { article ->
             article.urlToImage.let {
@@ -58,7 +65,11 @@ class DetailsFragment : Fragment() {
                             ContextCompat.startActivity(requireContext(), it, null)
                         }
                 } catch (e: Exception) {
-                    Toast.makeText(context, "The device doesn't have any browser to view the document!", Toast.LENGTH_SHORT)
+                    Toast.makeText(
+                        context,
+                        "The device doesn't have any browser to view the document!",
+                        Toast.LENGTH_SHORT
+                    )
                 }
             }
         }

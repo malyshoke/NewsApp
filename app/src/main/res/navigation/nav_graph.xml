@@ -22,6 +22,12 @@
         <argument
             android:name="article"
             app:argType="com.malyshok.newsapp.models.Article" />
+        <action
+            android:id="@+id/action_detailsFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"

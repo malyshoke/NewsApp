@@ -74,6 +74,7 @@
         android:textSize="12sp"
         android:textColor="@color/grayBlack"
         android:lineHeight="19dp"
+        android:fontFamily="@font/inter"
         tools:text="Recently, Twitter announced that it has entered into a definitive agreement to be acquired by an entity wholly owned by Musk for $54.20 per share in cash in a transaction valued at nearly $44 billion."
         app:layout_constraintTop_toBottomOf="@id/article_details_decription_title"
         app:layout_constraintStart_toStartOf="parent"
